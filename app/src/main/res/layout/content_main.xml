@@ -12,7 +12,7 @@
         android:id="@+id/tv_word"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="5dp"
+        android:elevation="8dp"
         android:layout_margin="8dp"
         android:textSize="@dimen/text_size_large"
         android:text="tap the search button!"/>
@@ -20,6 +20,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
+        android:elevation="8dp"
         android:background="@color/gray_96"/>
 
     <ListView

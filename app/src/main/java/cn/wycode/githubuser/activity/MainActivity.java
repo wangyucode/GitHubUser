@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.lzy.okgo.OkGo;
@@ -46,6 +47,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @BindView(R.id.lv_main)
     ListView lv_main;
 
+    @BindView(R.id.tv_word)
+    TextView tv_word;
+
     List<User> users = new ArrayList<>();
     UserAdapter adapter;
 
@@ -53,7 +57,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentViewWithDefaultTitle(R.layout.content_main, "Github User");
+        setContentViewWithDefaultTitle(R.layout.content_main, "Github User Searcher");
     }
 
     @Override
@@ -74,6 +78,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         final EditText editText = new EditText(this);
+        editText.setSingleLine(true);
         AlertDialog dialog = new AlertDialog.Builder(this)
                 .setTitle("please input Github username")
                 .setView(editText)
@@ -87,7 +92,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         dialog.show();
     }
 
-    private void queryUser(String text) {
+    private void queryUser(final String text) {
         final AlertDialog loading = new AlertDialog.Builder(this)
                 .setTitle("loading...")
                 .setView(new ProgressBar(this))
@@ -103,6 +108,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
 
                 if (users.size() > 0) {
+                    tv_word.setText("result of "+text);
                     adapter.setList(users);
                     getRepos();
                 }

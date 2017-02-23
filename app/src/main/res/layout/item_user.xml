@@ -20,7 +20,7 @@
             android:id="@+id/tv_item_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/gray_48"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/text_size_large"
             android:text="name"/>
 
@@ -28,7 +28,7 @@
             android:id="@+id/tv_item_language"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/gray_128"
+            android:textColor="@color/colorAccent"
             android:textSize="@dimen/text_size_small"
             android:text=""/>
 
